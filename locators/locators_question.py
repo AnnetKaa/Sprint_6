@@ -1,0 +1,20 @@
+from selenium.webdriver.common.by import By
+
+class LocatorsforQuestion:
+    IMPORTANT_QUESTIONS = (By.XPATH, ".//div[text() = 'Вопросы о важном']")
+    PRICE_QUESTION = (By.XPATH, ".//div[text() = 'Сколько это стоит? И как оплатить?']")
+    PRICE_ANSWER = (By.XPATH, ".//p[text() = 'Сутки — 400 рублей. Оплата курьеру — наличными или картой.']")
+    QUANTITY_QUESTION = (By.XPATH, ".//div[text() = 'Хочу сразу несколько самокатов! Так можно?']")
+    QUANTITY_ANSWER = (By.XPATH, ".//p[text() = 'Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.']")
+    TIME_QUESTION = (By.XPATH, ".//div[text() = 'Как рассчитывается время аренды?']")
+    TIME_ANSWER = (By.XPATH, ".//p[contains(text(), 'Допустим, вы оформляете заказ на 8 мая.')]")
+    ORDER_TODAY_QUESTION = (By.XPATH, ".//div[text() = 'Можно ли заказать самокат прямо на сегодня?']")
+    ORDER_TODAY_ANSWER = (By.XPATH, ".//p[contains(text(), 'Только начиная с завтрашнего дня.')]")
+    DEADLINE_QUESTION = (By.XPATH, ".//div[text() = 'Можно ли продлить заказ или вернуть самокат раньше?']")
+    DEADLINE_ANSWER = (By.XPATH, ".//p[contains(text(), 'Пока что нет!')]")
+    CHARGER_QUESTION = (By.XPATH, ".//div[text() = 'Вы привозите зарядку вместе с самокатом?']")
+    CHARGER_ANSWER = (By.XPATH, ".//p[contains(text(), 'Самокат приезжает к вам с полной зарядкой.')]")
+    CANCEL_QUESTION = (By.XPATH, ".//div[text() = 'Можно ли отменить заказ?']")
+    CANCEL_ANSWER = (By.XPATH, ".//p[contains(text(), 'Да, пока самокат не привезли.')]")
+    TERRITORY_QUESTION = (By.XPATH, ".//div[text() = 'Я жизу за МКАДом, привезёте?']")
+    TERRITORY_ANSWER = (By.XPATH, ".//p[contains(text(), 'Да, обязательно')]")
