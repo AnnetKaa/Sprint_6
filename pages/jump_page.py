@@ -1,40 +1,35 @@
 import allure
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
+from pages.base_page import BasePage
 from locators import locators_jump
 
 
-class JumpPage:
-
-    @allure.step('Открываем браузер Firefox')
-    def __init__(self, driver):
-        self.driver = driver
+class JumpPage(BasePage):
+    locators = locators_jump.LocatorsforJump()
 
     @allure.step('Переходим по табу яндекс')
     def click_yandex_tab(self):
-        self.driver.find_element(*locators_jump.LocatorsforJump.YANDEX).click()
-
-    @allure.step('Ожидаем открытие страницы')
-    def wait_dzen_site(self):
-        WebDriverWait(self.driver, 15).until(EC.presence_of_element_located(locators_jump.LocatorsforJump.DZEN))
+        self.find_element(self.locators.YANDEX).click()
 
     @allure.step('Нажимаем логотип самоката')
     def click_main_tab(self):
-        self.driver.find_element(*locators_jump.LocatorsforJump.MAIN).click()
+        self.find_element(self.locators.MAIN).click()
+
+    @allure.step('Ожидаем открытие страницы')
+    def wait_dzen_site(self):
+        self.wait_presence_of_element_located(self.locators.DZEN)
 
     @allure.step('Ожидаем открытия главной страницы')
     def wait_home_site(self):
-        WebDriverWait(self.driver, 7).until(EC.presence_of_element_located(locators_jump.LocatorsforJump.HOME))
+        self.wait_presence_of_element_located(self.locators.HOME)
 
     @allure.step('Открытие новой вкладки')
-    def wait_switch_to_window(self):
-        self.driver.switch_to.window(self.driver.window_handles[1])
-
-    @allure.step('Проверка актуального URL')
-    def find_actual_url(self):
-        return self.driver.current_url
+    def wait_switch_to_window(self, index):
+        self.switch_to_window(index)
+        self.wait_presence_of_element_located(self.locators.DZEN)
+        return self.find_actual_url()
 
     @allure.step('Ожидаем открытия главной страницы')
     def wait_main_site(self):
-        WebDriverWait(self.driver, 15).until(EC.presence_of_element_located(locators_jump.LocatorsforJump.IMG))
+        self.wait_presence_of_element_located(self.locators.IMG)
+
+
