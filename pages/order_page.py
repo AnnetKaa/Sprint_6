@@ -10,6 +10,7 @@ class OrderPage(BasePage):
         self.find_element(self.locators.ORDER_TAB).click()
         self.wait_element_to_be_clickable(self.locators.WHOSE_ORDER)
 
+    @allure.step('Заполняем форму заказа')
     def filling_fields(self, name, surname, address, phone, comment):
         self.find_element(self.locators.NAME).send_keys(name)
         self.find_element(self.locators.SURNAME).send_keys(surname)

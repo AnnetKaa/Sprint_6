@@ -28,11 +28,6 @@ class BasePage:
     def switch_to_window(self, index):
         self.driver.switch_to.window(self.driver.window_handles[index])
 
-    # def question_button(self, question):
-    #     self.find_element(question)
-    #
-    # def answer_element(self, answer):
-    #     self.driver.find_element(answer)
 
 
 
